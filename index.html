@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html = style="height: 100%;">
+  <head>
+    <title>Map of the Irian province</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scripts/leaflet.css">
+    <script src="scripts/leaflet.js"></script>
+  </head>
+  
+  <body style="height: 100%; margin: 0;">
+    <div id="map" style="width: 100%; height: 100%; background: #000000;"></div>
+    <script type="text/javascript">
+  //Creating the Map
+    var map = L.map('map').setView([0, 0], 0);
+    L.tileLayer('map/{z}/{x}/{y}.png', {
+      continuousWorld: false,
+      noWrap: true,  
+      minZoom: 3,
+      maxZoom: 5,
+    }).addTo(map);
+  //Coordinate Finder
+  /*
+    var marker = L.marker([0, 0], {
+      draggable: true,
+    }).addTo(map);
+    marker.bindPopup('Location Finder').openPopup();
+    marker.on('dragend', function(e) {
+      marker.getPopup().setContent(marker.getLatLng().toString()).openOn(map);
+    });
+    */
+  //Markers
+  var alkmaar = L.marker([-45.920587,98.789063]).bindPopup('Alkmaar').addTo(map);
+  var mine = L.marker([-54.470038, 100.195313]).bindPopup('Abbandoed mine').addTo(map);
+  var stronghold = L.marker([-59.040555, 87.890625]).bindPopup('Stronghold').addTo(map);
+  var camp = L.marker([-39.504041, 99.228516]).bindPopup('Ocatvian\'s Camp').addTo(map);
+  var florum = L.marker([-38.61687, 14.414063]).bindPopup('Florum').addTo(map);
+  var temet = L.marker([-32.805745, 61.567383]).bindPopup('Temet').addTo(map);
+  var miport = L.marker([-1.230374, 2.944336]).bindPopup('Miprot').addTo(map);
+    </script>
+  </body>
+</html>
