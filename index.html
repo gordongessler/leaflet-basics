@@ -27,16 +27,16 @@
       marker.getPopup().setContent(marker.getLatLng().toString()).openOn(map);
     });
   //Markers
-    var alkmaar = L.marker([-45.920587,98.789063]).bindPopup('Alkmaar').addTo(map);
+    var alkmaar = L.marker([-45.920587,98.789063]).bindPopup('<b>Alkmaar</b><br />Reskined Saltmarsh from GoS').addTo(map);
     alkmaar.bindTooltip("Alkmaar");
-    var mine = L.marker([-54.470038, 100.195313]).bindPopup('Abbandoed mine').addTo(map);
-    var stronghold = L.marker([-59.040555, 87.890625]).bindPopup('Stronghold').addTo(map);
-    var camp = L.marker([-39.504041, 99.228516]).bindPopup('Ocatvian\'s Camp').addTo(map);
-    var florum = L.marker([-38.61687, 14.414063]).bindPopup('Florum').addTo(map);
+    var mine = L.marker([-54.470038, 100.195313]).bindPopup('<b>Abbandoed mine</b><br />Forge of Fury from TftYP').addTo(map);
+    var stronghold = L.marker([-59.040555, 87.890625]).bindPopup('<b>Stronghold</b><br />Hevily reskinned inn from Horror at Havel\'s Cross').addTo(map);
+    var camp = L.marker([-39.504041, 99.228516]).bindPopup('<b>Ocatvian\'s Camp</b><br />Temporary location of Octavio\'s forces').addTo(map);
+    var florum = L.marker([-38.61687, 14.414063]).bindPopup('<b>Florum</b><br />Capital city of Donia').addTo(map);
     florum.bindTooltip("Florum");
-    var temet = L.marker([-32.805745, 61.567383]).bindPopup('Temet').addTo(map);
+    var temet = L.marker([-32.805745, 61.567383]).bindPopup('<b>Temet</b>').addTo(map);
     temet.bindTooltip("Temet");
-    var miport = L.marker([-1.230374, 2.944336]).bindPopup('Miprot').addTo(map);
+    var miport = L.marker([-1.230374, 2.944336]).bindPopup('<b>Miprot</b>').addTo(map);
     miport.bindTooltip("Miport");
   //Marker Groups
     var g_cities = L.layerGroup([alkmaar, florum, temet, miport]);
