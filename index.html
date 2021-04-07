@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html = style="height: 100%;">
+<html style="height: 100%;">
   <head>
     <title>Map of the Irian province</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,14 +18,26 @@
       minZoom: 3,
       maxZoom: 5,
     }).addTo(map);
+  //Coordinate Finder
+    var marker = L.marker([0, 0], {
+      draggable: true,
+    }).addTo(map);
+    marker.bindPopup('Location Finder').openPopup();
+    marker.on('dragend', function(e) {
+      marker.getPopup().setContent(marker.getLatLng().toString()).openOn(map);
+    });
   //Markers
     var alkmaar = L.marker([-45.920587,98.789063]).bindPopup('Alkmaar').addTo(map);
+    alkmaar.bindTooltip("Alkmaar");
     var mine = L.marker([-54.470038, 100.195313]).bindPopup('Abbandoed mine').addTo(map);
     var stronghold = L.marker([-59.040555, 87.890625]).bindPopup('Stronghold').addTo(map);
     var camp = L.marker([-39.504041, 99.228516]).bindPopup('Ocatvian\'s Camp').addTo(map);
     var florum = L.marker([-38.61687, 14.414063]).bindPopup('Florum').addTo(map);
+    florum.bindTooltip("Florum");
     var temet = L.marker([-32.805745, 61.567383]).bindPopup('Temet').addTo(map);
+    temet.bindTooltip("Temet");
     var miport = L.marker([-1.230374, 2.944336]).bindPopup('Miprot').addTo(map);
+    miport.bindTooltip("Miport");
   //Marker Groups
     var g_cities = L.layerGroup([alkmaar, florum, temet, miport]);
     var g_poi = L.layerGroup([mine, stronghold, camp]);
@@ -36,6 +48,14 @@
     }
     //GROUP CONTROLS
     L.control.layers(null, overlays).addTo(map);
+    //Polygon    
+    var polygon = L.polygon([
+      [-27.527758, -88.857422],
+      [-40.111689, -76.289063],
+      [-50.903033, -100.283203],
+      [-42.423457, -114.960938]
+    ], {color: 'green'}).addTo(map);
+     polygon.bindPopup("A polygon.");
     </script>
   </body>
 </html>
