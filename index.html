@@ -18,24 +18,24 @@
       minZoom: 3,
       maxZoom: 5,
     }).addTo(map);
-  //Coordinate Finder
-  /*
-    var marker = L.marker([0, 0], {
-      draggable: true,
-    }).addTo(map);
-    marker.bindPopup('Location Finder').openPopup();
-    marker.on('dragend', function(e) {
-      marker.getPopup().setContent(marker.getLatLng().toString()).openOn(map);
-    });
-    */
   //Markers
-  var alkmaar = L.marker([-45.920587,98.789063]).bindPopup('Alkmaar').addTo(map);
-  var mine = L.marker([-54.470038, 100.195313]).bindPopup('Abbandoed mine').addTo(map);
-  var stronghold = L.marker([-59.040555, 87.890625]).bindPopup('Stronghold').addTo(map);
-  var camp = L.marker([-39.504041, 99.228516]).bindPopup('Ocatvian\'s Camp').addTo(map);
-  var florum = L.marker([-38.61687, 14.414063]).bindPopup('Florum').addTo(map);
-  var temet = L.marker([-32.805745, 61.567383]).bindPopup('Temet').addTo(map);
-  var miport = L.marker([-1.230374, 2.944336]).bindPopup('Miprot').addTo(map);
+    var alkmaar = L.marker([-45.920587,98.789063]).bindPopup('Alkmaar').addTo(map);
+    var mine = L.marker([-54.470038, 100.195313]).bindPopup('Abbandoed mine').addTo(map);
+    var stronghold = L.marker([-59.040555, 87.890625]).bindPopup('Stronghold').addTo(map);
+    var camp = L.marker([-39.504041, 99.228516]).bindPopup('Ocatvian\'s Camp').addTo(map);
+    var florum = L.marker([-38.61687, 14.414063]).bindPopup('Florum').addTo(map);
+    var temet = L.marker([-32.805745, 61.567383]).bindPopup('Temet').addTo(map);
+    var miport = L.marker([-1.230374, 2.944336]).bindPopup('Miprot').addTo(map);
+  //Marker Groups
+    var g_cities = L.layerGroup([alkmaar, florum, temet, miport]);
+    var g_poi = L.layerGroup([mine, stronghold, camp]);
+  //Marker Overlay
+    var overlays = {
+      "Cities": g_cities,
+      "Points of interest": g_poi,
+    }
+    //GROUP CONTROLS
+    L.control.layers(null, overlays).addTo(map);
     </script>
   </body>
 </html>
